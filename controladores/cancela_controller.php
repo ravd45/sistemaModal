@@ -6,11 +6,14 @@ require_once '../modelo/beneficiario_model.php';
  */
 class CancelaController
 {
-  public function obtenerDatos($id)
+  public function obtenerDatos()
   {
+    $id = $_POST['id'];
 
     $data = ['id'=>$id];
+
     $result = ProyectoModelo::obtenerDatos($data);
+    
 
       foreach ($result as $row => $item) {
         echo"  <form action='../controladores/layout_controller.php' method='POST'>
@@ -30,7 +33,7 @@ class CancelaController
                       <option value='El municipio cancelo'>El municipio canceló</option>
                       <option value='Con subsidio / sin familiar'> Con subsidio / sin familiar</option>
                    </select>
-                  <label>Motivo de sustitución</label>
+                  <label class='active'>Motivo de sustitución</label>
                 </div>
                 <div class='input-field col m6' id='observacion'>
                 </div>
@@ -38,37 +41,37 @@ class CancelaController
           			<div class='input-field col m12'>
           				<i class='material-icons prefix'>build</i>
           					<input id='proyecto' name='proyecto' type='text' class='validate' value='".$item['proyecto']."' readonly required>
-          				<label>Proyecto</label>
+          				<label class='active'>Proyecto</label>
           			</div>
           			<!-- nombre -->
           			<div class='input-field col m4'>
           				<i class='material-icons prefix'>account_circle</i>
           				<input id='nombre' name='nombre' type='text' class='validate' value='".$item['nombre']."' required readonly>
-          				<label>Nombre</label>
+          				<label class='active'>Nombre</label>
           			</div>
           			<!-- apellido paterno -->
           			<div class='input-field col m4'>
           				<i class='material-icons prefix'>account_circle</i>
           				<input id='apellido_p' name='apellido_p' type='text' class='validate' value='".$item['apellido_paterno']."' required readonly>
-          				<label>Apellido paterno</label>
+          				<label class='active'>Apellido paterno</label>
           			</div>
           			<!-- apellido materno -->
           			<div class='input-field col m4'>
           				<i class='material-icons prefix'>account_circle</i>
           				<input id='apellido_m' name='apellido_m' type='text' class='validate'value='".$item['apellido_materno']."' required readonly>
-          				<label>Apellido materno</label>
+          				<label class='active'>Apellido materno</label>
           			</div>
           			<!-- curp -->
           			<div class='input-field col m4'>
           				<i class='material-icons prefix'>recent_actors</i>
-          				<input id='CURP' name='curp' value='". $item['curp']."' maxlength='18' type='text'value='".$item['curp']."' class='validate' required readonly>
-          				<label>CURP</label>
+          				<input id='CURP' name='curp' value='". $item['curp']."' maxlength='18' style='text-transform: uppercase;' type='text'value='".$item['curp']."' class='validate' required readonly>
+          				<label class='active'>CURP</label>
           			</div>	
           			<!-- teléfono -->
           			<div class='input-field col m4'>
           				<i class='material-icons prefix'>phone</i>
           				<input name='telefono' maxlength='10' type='number' value='".$item['telefono']."' class='validate' required readonly>
-          				<label>Teléfono</label>
+          				<label class='active'>Teléfono</label>
           			</div>
           			
                 <div class='row'>
@@ -88,6 +91,11 @@ class CancelaController
           </form>";
       }
   }
+}
+
+if(isset($_POST['id'])){
+  $a = new CancelaController();
+  $a -> obtenerDatos();
 }
 
 ?>

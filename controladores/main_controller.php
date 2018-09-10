@@ -97,12 +97,12 @@ class MainController
                 </div>
                 <div class='col m2'>";
                 if($item['estatus']=='Solicitante'){
-                 echo" <form method='POST' action='../vistas/ejecucion_form.php'>
-                    <input type='number' value='ejecuta' style='display: none;' name='ejecuta'>
-                    <input type='number' value='".$item['id_layout']."' style='display: none;' name='layout'>
-                    <input type='text' value='".$item['nombre_completo']."' style='display: none;' name='nombre'>
-                    <button class='btn-small btn waves-effect waves-light  waves-effect waves-light teal darken-4' type='submit' name='action'>Ejecución 
-                      <i class='material-icons'>done</i>
+                  // <form method='POST' action='../vistas/ejecucion_form.php'>
+                  //   <input type='number' value='ejecuta' style='display: none;' name='ejecuta'>
+                  //   <input type='number' value='".$item['id_layout']."' style='display: none;' name='layout'>
+                  //   <input type='text' value='".$item['nombre_completo']."' style='display: none;' name='nombre'>
+                  //   <button class='btn-small btn waves-effect waves-light  waves-effect waves-light teal darken-4' type='submit' name='action'>Ejecución 
+                   echo"<button data-target='ejecucionm' id='ejecucion' class='btn modal-trigger' value='".$item['id_layout']."'>ejecucion<i class='material-icons'>done</i>
                     </button>
                   </form>";
                 } else {
@@ -129,18 +129,22 @@ class MainController
                   }
                 }
                 echo "</div>
-                <div class='col m2'>
-                <form method='POST' action='../vistas/cancela_beneficiario.php'>
-                    <input name='id' value='".$item['id_layout']."' style='display:none;'>
-                  <button class='btn-small btn waves-effect waves-light waves-effect waves-light green darken-4 ' onclick='cancelacion()' type='submit' name='action'>Cancelar <i class='material-icons'>cancel</i></button>
-                </form>
+                <div class='col m2'>";
+
+                // echo " <form id='FormCancel'>
+                //      <input class='id' value='".$item['id_layout']."' style='display:none;'>
+                //    <button class='btn-small btn waves-effect waves-light waves-effect waves-light green darken-4  modal-trigger cancelar'  type='submit' name='action' data-target='cancelarm'>Cancelar <i class='material-icons'>cancel</i></button>";
+             echo"   <button data-target='cancelarm' id='cancelar' class='btn modal-trigger cancelar' value='".$item['id_layout']."'>cancelar</button>
+                
                 </div>
-                <div class='col m2'>
-                  <form method='POST' action='../vistas/actualiza_datos.php'>
-                    <input value='actualizacion' name='actualizacion' style='display:none;'>
-                    <input name='id' value='".$item['id_layout']."' style='display:none;'>
-                    <button class='btn-small btn waves-effect waves-light  waves-effect waves-light light-green darken-4' >Sustituir <i class='material-icons'>update</i>
-                    </button>
+                <div class='col m2'>";
+                  var_dump($item['id_layout']);
+                  // <form method='POST' action='../vistas/actualiza_datos.php'>
+                    // <input value='actualizacion' name='actualizacion' style='display:none;'>
+                    // <input name='id' value='".$item['id_layout']."' style='display:none;'>
+                    // <button class='btn-small btn waves-effect waves-light  waves-effect waves-light light-green darken-4' >Sustituir <i class='material-icons'>update</i>
+                    // </button>
+                 echo"   <button data-target='sustituirm' id='sustituir' class='btn modal-trigger' value='".$item['id_layout']."'>Sustituir <i class='material-icons'>update</i>
                   </form>
                 </div>
               </div>

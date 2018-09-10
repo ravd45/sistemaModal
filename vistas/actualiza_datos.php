@@ -1,12 +1,16 @@
-<?php include '../libs/header.php';
+<?php
       include '../controladores/actualizar_datos_controller.php';
 ?>
+<div id="sustituirm" class="modal">
+	<div class="modal-content">
       <h3>Sustitución de beneficiario</h3>
 <?php
 
-$usuario = $_POST['id'];
+$usuario = 78;
       $actualizar = new ActualizarController();
       $actualizar->obtenerDatos($usuario);?>
+    </div>
+</div>
 <script>
 	function otros() {
 		var select = document.getElementById('motivo').value;

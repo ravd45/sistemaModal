@@ -37,4 +37,24 @@
     
   </script>
 
+  <script>
+    $(document).ready(function(){
+      $(document).on('click', '.cancelar', function(){
+        
+         var btn=$('.cancelar').val();
+
+        // $('#layoutm').modal('show');
+        // $('#efirstname').val(first);
+        // $('#elastname').val(last);
+        // $('#eaddress').val(address);
+        // $('#nombre').html('<i class="material-icons prefix">account_circle</i><input id="nombre" name="nombre" value="'+btn+'" type="text" class="validate focus" required><label>Nombre</label>');
+       
+      });
+    });
+  </script>
+
+  <?php include 'cancela_beneficiario.php';
+  include 'actualiza_datos.php'; 
+  include 'ejecucion_form.php';?>
+
 <?php include '../libs/footer.php'; ?>

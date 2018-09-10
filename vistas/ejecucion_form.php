@@ -1,11 +1,13 @@
-<?php include '../libs/header.php';
-	  include '../controladores/main_controller.php';
+<?php 
+// include '../libs/header.php';
+	  // include '../controladores/main_controller.php';
 	  include '../controladores/ejecucion_controller.php'; ?>
-
+<div id="ejecucionm" class="modal">
+	<div class="modal-content">
 <h3>En ejecución</h3>
+<div class="row z-depth-4">
 <h5><?php echo $_POST['nombre']; ?></h5>
 
-<div class="row z-depth-4">
 	<form action="../controladores/layout_controller.php" method="POST">
 		<br>
 		<input type="number" name='ejecuta' value='<?php echo $_POST['ejecuta'] ?>' style='display: none;'>
@@ -35,6 +37,8 @@
 		</div>
 	</div>
 	</form>
+</div>
+</div>
 </div>
 
 <?php include '../libs/footer.php' ?>

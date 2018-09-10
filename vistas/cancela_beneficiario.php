@@ -1,12 +1,36 @@
-<?php include '../libs/header.php';
-      include '../controladores/cancela_controller.php';
+<?php 
+include '../controladores/cancela_controller.php';
 ?>
-      <h3>Cancelación de beneficiario</h3>
-<?php
+<div id="cancelarm" class="modal">
+	<div class="modal-content">
+		<h3>Cancelación de beneficiario</h3>
+			<div id="formcancela">
+				
+			</div>
+		<script> 
+			$(document).ready(function() {
+				$(document).on('click', '.cancelar', function() {
+					
+				var btn=$('.cancelar').val();
+				 var dataString = 'id='+btn;
+				console.log(dataString);
+				$.ajax({
+					url:"../controladores/cancela_controller.php",
+					type:"POST",
+					data:dataString,
+					success: function(response) {
+						// console.log("response: "+response);
+						$('#formcancela').html(response);
+					}
+				});
+				return false;
+				});
+			});
+		</script>
+		<?php
+      // $cancelar = new CancelaController();
+      // $cancelar->obtenerDatos($usuario); ?>
+      
+  </div>
+</div>  
 
-$usuario = $_POST['id'];
-      $cancelar = new CancelaController();
-      $cancelar->obtenerDatos($usuario);
-      include '../libs/footer.php';
-
-?>
